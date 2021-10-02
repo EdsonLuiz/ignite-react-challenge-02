@@ -1,13 +1,12 @@
 import React from 'react';
 import {
-  MdDelete,
-  MdAddCircleOutline,
-  MdRemoveCircleOutline,
+  MdAddCircleOutline, MdDelete, MdRemoveCircleOutline
 } from 'react-icons/md';
-
 // import { useCart } from '../../hooks/useCart';
 // import { formatPrice } from '../../util/format';
 import { Container, ProductTable, Total } from './styles';
+
+
 
 interface Product {
   id: number;
