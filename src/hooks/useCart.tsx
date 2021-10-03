@@ -59,10 +59,7 @@ export function CartProvider({ children }: CartProviderProps): JSX.Element {
 
         setCart(cartCopy)
         updateLocalStorage(cartCopy)
-        // localStorage.setItem('@RocketShoes:cart', JSON.stringify(cartCopy))
       }
-
-
     } catch {
       toast.error('Erro na adição do produto');
     }
@@ -71,8 +68,14 @@ export function CartProvider({ children }: CartProviderProps): JSX.Element {
   const removeProduct = (productId: number) => {
     try {
       // TODO
+      let cartCopy = [...cart]
+      const productNotExists = cartCopy.find(product => Object.is(product.id, productId)) ? false : true
+      if(productNotExists) throw new Error()
+      cartCopy = cartCopy.filter(product => product.id !== productId)
+      setCart(cartCopy)
+      updateLocalStorage(cartCopy)
     } catch {
-      // TODO
+      toast.error('Erro na remoção do produto');
     }
   };
 
